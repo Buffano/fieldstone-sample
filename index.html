@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fieldstone Residential | Semi-Custom Homes in Greater Atlanta</title>
+<meta name="description" content="Sample demo site for Fieldstone Residential, a fictional semi-custom home builder in Greater Atlanta. Explore two proof-of-concept sample plans, buyer Q&amp;A, regions and a buyer checklist.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1f4d3a">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fieldstone Residential | Sample Builder Site">
+<meta property="og:description" content="Sample demo site for a fictional semi-custom home builder in Greater Atlanta, featuring two proof-of-concept sample plans.">
+<meta property="og:image" content="https://buffano.github.io/fieldstone-sample/assets/img/hartwell-three-quarter.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preload" as="image" href="assets/img/hartwell-three-quarter-800.webp" imagesrcset="assets/img/hartwell-three-quarter-800.webp 800w, assets/img/hartwell-three-quarter.webp 1280w" imagesizes="(max-width:860px) 92vw, 480px">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --stone-50:#faf8f5; --stone-100:#f3efe9; --stone-200:#e7e0d6; --stone-300:#d6ccbe;
+  --stone-500:#9a8e7e; --stone-700:#5c5348; --stone-900:#2b2620;
+  --green:#1f4d3a; --green-dark:#163a2b; --green-light:#e3ece6; --accent:#b08d57;
+  --radius:14px; --shadow:0 6px 24px rgba(43,38,32,.08);
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --header-h:68px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 8px)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;font-family:var(--sans);color:var(--stone-900);background:var(--stone-50);line-height:1.6;font-size:16px}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.2;margin:0 0 .5em;color:var(--stone-900)}
+h2{font-size:clamp(1.7rem,3vw,2.3rem)}
+h3{font-size:1.3rem}
+p{margin:0 0 1em}
+a{color:var(--green)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}
+.container{width:min(1140px,100% - 2.5rem);margin-inline:auto}
+.skip{position:absolute;left:-9999px;top:0;background:var(--green);color:#fff;padding:.6rem 1rem;z-index:200}
+.skip:focus{left:1rem;top:1rem}
+.eyebrow{display:inline-block;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:.6rem}
+.section{padding:clamp(3.5rem,7vw,5.5rem) 0}
+.section.alt{background:var(--stone-100)}
+.section-head{max-width:640px;margin-bottom:2.2rem}
+.section-head p{color:var(--stone-700)}
+.tag{display:inline-block;font-size:.72rem;font-weight:600;background:var(--stone-200);color:var(--stone-700);padding:.15rem .55rem;border-radius:999px;letter-spacing:.02em}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font:600 .98rem var(--sans);padding:.8rem 1.4rem;border-radius:999px;border:2px solid var(--green);background:var(--green);color:#fff;text-decoration:none;cursor:pointer;transition:background .2s,color .2s,transform .15s}
+.btn:hover{background:var(--green-dark);border-color:var(--green-dark)}
+.btn:active{transform:translateY(1px)}
+.btn.outline{background:transparent;color:var(--green)}
+.btn.outline:hover{background:var(--green);color:#fff}
+.btn.light{background:#fff;color:var(--green);border-color:#fff}
+.btn.light:hover{background:var(--stone-100)}
+
+/* Header */
+header.site{position:sticky;top:0;z-index:100;background:rgba(250,248,245,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--stone-200)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:var(--header-h)}
+.logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--stone-900);font-family:var(--serif);font-size:1.2rem;font-weight:600}
+.logo svg{flex:none}
+.nav ul{list-style:none;display:flex;gap:.3rem;margin:0;padding:0}
+.nav ul a{display:block;padding:.5rem .8rem;border-radius:999px;text-decoration:none;color:var(--stone-700);font-weight:500;font-size:.95rem}
+.nav ul a:hover{color:var(--green);background:var(--green-light)}
+.nav ul a.active{color:var(--green);background:var(--green-light)}
+.nav ul a.cta{background:var(--green);color:#fff}
+.nav ul a.cta:hover,.nav ul a.cta.active{background:var(--green-dark);color:#fff}
+.menu-btn{display:none;background:none;border:1px solid var(--stone-300);border-radius:10px;width:44px;height:44px;cursor:pointer;align-items:center;justify-content:center}
+.menu-btn span,.menu-btn span::before,.menu-btn span::after{display:block;width:20px;height:2px;background:var(--stone-900);position:relative;transition:transform .2s}
+.menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0}
+.menu-btn span::before{top:-6px}.menu-btn span::after{top:6px}
+.menu-btn[aria-expanded="true"] span{background:transparent}
+.menu-btn[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg)}
+@media (max-width:860px){
+  .menu-btn{display:inline-flex}
+  .nav ul{display:none;position:absolute;top:var(--header-h);left:0;right:0;flex-direction:column;background:var(--stone-50);border-bottom:1px solid var(--stone-200);padding:.75rem 1.25rem 1.25rem;box-shadow:var(--shadow)}
+  .nav ul.open{display:flex}
+  .nav ul a{padding:.8rem 1rem}
+}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#2a4a3b 0%,#1f4d3a 45%,#3d5a49 100%);color:#fff}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 85% 20%,rgba(176,141,87,.35),transparent 55%);pointer-events:none}
+.hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center;padding:clamp(3.5rem,8vw,6.5rem) 0}
+.hero h1{color:#fff;font-size:clamp(2.2rem,5vw,3.6rem);letter-spacing:-.01em}
+.hero .eyebrow{color:#d9c39a}
+.hero p.lead{font-size:1.12rem;color:#e6ece8;max-width:34rem}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.6rem}
+.hero .btn.outline{color:#fff;border-color:rgba(255,255,255,.6)}
+.hero .btn.outline:hover{background:#fff;color:var(--green)}
+.hero-stats{display:flex;gap:2rem;margin-top:2.2rem;flex-wrap:wrap}
+.hero-stats div{font-size:.85rem;color:#cfdad3}
+.hero-stats strong{display:block;font-family:var(--serif);font-size:1.6rem;color:#fff}
+.hero-art{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:1.2rem}
+.hero-art{margin:0}
+.hero-art img{width:100%;height:auto;display:block;border-radius:12px;aspect-ratio:16/9;object-fit:cover}
+.hero-art figcaption{font-size:.76rem;color:#cfdad3;margin-top:.55rem;line-height:1.35}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:-2.5rem;position:relative;z-index:2}
+.pillar{background:#fff;border-radius:var(--radius);padding:1.4rem 1.5rem;box-shadow:var(--shadow);border:1px solid var(--stone-200)}
+.pillar h3{font-size:1.08rem;margin-bottom:.3rem}
+.pillar p{margin:0;color:var(--stone-700);font-size:.95rem}
+.pillar .ic{width:38px;height:38px;border-radius:10px;background:var(--green-light);display:grid;place-items:center;margin-bottom:.7rem}
+@media (max-width:860px){
+  .hero-inner{grid-template-columns:1fr;gap:2rem}
+  .hero-art{max-width:460px}
+  .pillars{grid-template-columns:1fr;margin-top:1.5rem}
+}
+@media (max-width:480px){.hero-stats{gap:1.25rem}.hero-stats strong{font-size:1.3rem}.hero-stats div{font-size:.78rem}}
+
+/* Plans */
+.plans{display:grid;grid-template-columns:repeat(2,1fr);gap:1.6rem}
+.plan{background:#fff;border:1px solid var(--stone-200);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.gallery{position:relative;margin:0;background:var(--stone-100)}
+.gal-main{display:block;width:100%;padding:0;border:0;background:#fff;cursor:zoom-in;aspect-ratio:16/9;overflow:hidden;position:relative}
+.gal-main img{display:block;width:100%;height:100%;object-fit:cover}
+.gal-main.is-plan img{object-fit:contain;background:#fff;padding:.35rem}
+.gal-main .zoom-hint{position:absolute;right:10px;bottom:10px;background:rgba(43,38,32,.78);color:#fff;font-size:.72rem;font-weight:600;padding:.25rem .6rem;border-radius:999px;pointer-events:none}
+.gallery .gal-label{position:absolute;left:12px;top:12px;background:rgba(255,255,255,.94);font-size:.75rem;font-weight:600;padding:.25rem .6rem;border-radius:999px;color:var(--stone-700);z-index:1;pointer-events:none}
+.thumbs{display:flex;gap:.5rem;padding:.7rem 1rem;margin:0;list-style:none;background:var(--stone-100);border-top:1px solid var(--stone-200)}
+.thumbs li{flex:1;min-width:0}
+.thumb{display:block;width:100%;padding:0;border:2px solid transparent;border-radius:9px;background:#fff;cursor:pointer;overflow:hidden;font:inherit;color:var(--stone-700)}
+.thumb img{display:block;width:100%;height:64px;object-fit:cover}
+.thumb.is-plan img{object-fit:contain;background:#fff}
+.thumb span{display:block;font-size:.68rem;font-weight:600;padding:.2rem .25rem .25rem;line-height:1.15;text-align:center;background:var(--stone-50);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.thumb:hover{border-color:var(--stone-300)}
+.thumb[aria-current="true"]{border-color:var(--green)}
+.thumb[aria-current="true"] span{background:var(--green);color:#fff}
+.render-note{margin:0;padding:.55rem 1rem;font-size:.78rem;line-height:1.4;color:var(--stone-700);background:#fbf6ec;border-top:1px solid #eadfca;border-bottom:1px solid var(--stone-200)}
+.render-note strong{color:var(--stone-900)}
+.poc{display:flex;gap:.6rem;align-items:flex-start;margin:.2rem 0 1rem;padding:.7rem .85rem;border-radius:10px;background:#fdf3e7;border:1px solid #efd5b3;color:#6b4a1d;font-size:.85rem;line-height:1.4}
+.poc svg{flex:none;margin-top:.1rem}
+.poc strong{color:#5a3c12}
+.tag.poc-tag{background:#f6e3c6;color:#6b4a1d;margin-left:.3rem}
+.spec-table{width:100%;border-collapse:collapse;font-size:.88rem;margin:0 0 1.2rem}
+.spec-table th,.spec-table td{text-align:left;padding:.42rem .2rem;border-bottom:1px solid var(--stone-200);vertical-align:top}
+.spec-table th{font-weight:600;color:var(--stone-900);width:40%;padding-right:.8rem}
+.spec-table td{color:var(--stone-700)}
+.plan h4.feat-h{font-family:var(--sans);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin:0 0 .5rem}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.common-specs{margin-top:1.6rem;background:#fff;border:1px solid var(--stone-200);border-radius:var(--radius);padding:1.2rem 1.4rem;box-shadow:var(--shadow)}
+.common-specs h3{font-size:1.05rem;margin-bottom:.5rem}
+.common-specs ul{margin:0;padding-left:1.1rem;color:var(--stone-700);font-size:.93rem;columns:2;gap:2rem}
+.common-specs li{break-inside:avoid;margin-bottom:.25rem}
+@media (max-width:640px){.common-specs ul{columns:1}}
+/* Lightbox */
+.lightbox{border:0;padding:0;margin:auto;width:min(1200px,96vw);max-height:94vh;background:transparent;color:#fff;overflow:visible}
+.lightbox::backdrop{background:rgba(20,18,15,.88)}
+.lb-inner{display:flex;flex-direction:column;max-height:94vh}
+.lb-bar{display:flex;align-items:center;justify-content:space-between;gap:.8rem;padding:.5rem .2rem}
+.lb-title{font-weight:600;font-size:.95rem;min-width:0}
+.lb-title small{display:block;font-weight:400;color:#d6ccbe;font-size:.78rem}
+.lb-tools{display:flex;gap:.4rem;flex:none}
+.lb-btn{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3);border-radius:999px;min-width:44px;height:44px;padding:0 .9rem;font:600 .9rem var(--sans);cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+.lb-btn[hidden]{display:none}
+.lb-btn:hover{background:rgba(255,255,255,.24)}
+.lb-stage{position:relative;flex:1;min-height:0;overflow:auto;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center}
+.lb-stage img{display:block;max-width:100%;max-height:calc(94vh - 120px);width:auto;height:auto;margin:auto}
+.lb-stage.is-plan{display:block}
+.lb-stage.is-plan img{max-height:none;width:min(100%,1363px)}
+.lb-stage.zoomed{display:block}
+.lb-stage.zoomed img{max-width:none;max-height:none;width:3000px}
+.lb-nav{display:flex;justify-content:space-between;align-items:center;gap:.6rem;padding:.5rem .2rem 0;font-size:.82rem;color:#d6ccbe}
+@media (max-width:560px){.lb-btn{padding:0 .7rem;font-size:.82rem}.lb-stage img{max-height:calc(94vh - 140px)}}
+.plan-body{padding:1.5rem;display:flex;flex-direction:column;flex:1}
+.plan-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap}
+.price{text-align:right}
+.price strong{display:block;font-family:var(--serif);font-size:1.5rem;color:var(--green)}
+.price small{color:var(--stone-500);font-size:.78rem}
+.specs{display:flex;flex-wrap:wrap;gap:.5rem;margin:.6rem 0 1rem;padding:0;list-style:none}
+.specs li{background:var(--green-light);color:var(--green-dark);font-size:.85rem;font-weight:600;padding:.3rem .7rem;border-radius:8px}
+.features{columns:2;gap:1.2rem;padding:0;margin:0 0 1.4rem;list-style:none;font-size:.93rem;color:var(--stone-700)}
+.features li{break-inside:avoid;padding-left:1.4rem;position:relative;margin-bottom:.35rem}
+.features li::before{content:"";position:absolute;left:0;top:.45em;width:.8rem;height:.45rem;border-left:2px solid var(--green);border-bottom:2px solid var(--green);transform:rotate(-45deg)}
+.plan .btn{margin-top:auto;align-self:flex-start}
+.fine{font-size:.82rem;color:var(--stone-500);margin-top:1.2rem}
+@media (max-width:860px){.plans{grid-template-columns:1fr}}
+@media (max-width:420px){.features{columns:1}}
+@media (max-width:860px) and (min-width:600px) and (orientation:landscape){.plan{display:grid;grid-template-columns:1.05fr 1fr;align-items:start}.plan-body{padding:1.1rem 1.2rem}.features{columns:1}}
+
+/* Accordion */
+.faq{max-width:820px}
+.acc-item{border:1px solid var(--stone-200);background:#fff;border-radius:12px;margin-bottom:.7rem;overflow:hidden}
+.acc-item h3{margin:0;font-family:var(--sans);font-size:1rem;font-weight:600}
+.acc-btn{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem;text-align:left;background:none;border:0;padding:1.1rem 1.25rem;font:inherit;color:var(--stone-900);cursor:pointer}
+.acc-btn:hover{background:var(--stone-50)}
+.acc-btn .chev{flex:none;width:28px;height:28px;border-radius:50%;background:var(--green-light);display:grid;place-items:center;transition:transform .25s}
+.acc-btn[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.acc-panel{padding:0 1.25rem 1.15rem;color:var(--stone-700)}
+.acc-panel p{margin:.2rem 0 0}
+.acc-panel .tag{margin-bottom:.4rem}
+
+/* Regions */
+.regions{display:grid;grid-template-columns:280px 1fr;gap:1.6rem;align-items:start}
+.region-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.5rem}
+.region-btn{width:100%;text-align:left;background:#fff;border:1px solid var(--stone-200);border-radius:12px;padding:.85rem 1rem;font:500 1rem var(--sans);color:var(--stone-900);cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.region-btn:hover{border-color:var(--green)}
+.region-btn[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#fff}
+.region-btn small{font-size:.78rem;opacity:.75}
+.region-panel{background:#fff;border:1px solid var(--stone-200);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.map{position:relative;height:220px;background:
+  linear-gradient(0deg,rgba(31,77,58,.05),rgba(31,77,58,.05)),
+  repeating-linear-gradient(0deg,transparent 0 38px,rgba(92,83,72,.08) 38px 39px),
+  repeating-linear-gradient(90deg,transparent 0 38px,rgba(92,83,72,.08) 38px 39px),
+  var(--stone-100);display:grid;place-items:center;border-bottom:1px solid var(--stone-200)}
+.map svg{position:absolute;inset:0;width:100%;height:100%}
+.map .map-note{position:absolute;left:12px;bottom:12px;background:rgba(255,255,255,.92);padding:.4rem .8rem;border-radius:999px;font-size:.8rem;font-weight:600;color:var(--stone-700)}
+.region-detail{padding:1.5rem}
+.region-detail h3{margin-bottom:.2rem}
+.region-detail .sub{color:var(--stone-500);font-size:.9rem;margin-bottom:1.2rem}
+.detail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.detail-grid div{background:var(--stone-50);border:1px solid var(--stone-200);border-radius:10px;padding:1rem}
+.detail-grid h4{margin:0 0 .4rem;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--green)}
+.detail-grid ul{margin:0;padding-left:1.1rem;font-size:.93rem;color:var(--stone-700)}
+.detail-grid p{margin:0;font-size:.93rem;color:var(--stone-700)}
+.commute{font-family:var(--serif);font-size:1.5rem;color:var(--stone-900)!important}
+@media (max-width:960px){.detail-grid{grid-template-columns:1fr}}
+@media (max-width:860px){
+  .regions{grid-template-columns:1fr}
+  .region-list{flex-direction:row;flex-wrap:wrap}
+  .region-list li{flex:1 1 calc(50% - .5rem)}
+}
+
+/* Checklist */
+.check-wrap{display:grid;grid-template-columns:1fr 320px;gap:2rem;align-items:start}
+.checklist{list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
+.checklist label{display:flex;gap:.9rem;align-items:flex-start;background:#fff;border:1px solid var(--stone-200);border-radius:12px;padding:.9rem 1.1rem;cursor:pointer;transition:border-color .2s,background .2s}
+.checklist label:hover{border-color:var(--green)}
+.checklist input{appearance:none;-webkit-appearance:none;flex:none;width:22px;height:22px;margin-top:2px;border:2px solid var(--stone-500);border-radius:6px;display:grid;place-items:center;cursor:pointer;background:#fff}
+.checklist input:checked{background:var(--green);border-color:var(--green)}
+.checklist input:checked::after{content:"";width:6px;height:11px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.checklist input:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.checklist .step-t{font-weight:600;display:block}
+.checklist .step-d{font-size:.9rem;color:var(--stone-700)}
+.checklist label.done{background:var(--green-light);border-color:#b9cfc2}
+.checklist label.done .step-t{text-decoration:line-through;text-decoration-color:rgba(31,77,58,.5)}
+.progress-card{position:sticky;top:calc(var(--header-h) + 1rem);background:#fff;border:1px solid var(--stone-200);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow)}
+.pct{font-family:var(--serif);font-size:2.8rem;color:var(--green);line-height:1}
+.bar{height:12px;border-radius:999px;background:var(--stone-200);overflow:hidden;margin:1rem 0 .6rem}
+.bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--green),#3a7a5c);border-radius:999px;transition:width .35s ease}
+.progress-card p{font-size:.9rem;color:var(--stone-700)}
+.progress-card .btn{width:100%;margin-top:.4rem}
+.linkbtn{background:none;border:0;color:var(--stone-700);text-decoration:underline;font:inherit;font-size:.85rem;cursor:pointer;margin-top:.8rem;padding:.2rem}
+@media (max-width:860px){.check-wrap{grid-template-columns:1fr}.progress-card{position:static;order:-1}}
+
+/* Form */
+.contact{display:grid;grid-template-columns:.85fr 1.15fr;gap:2.5rem;align-items:start}
+.contact-info ul{list-style:none;padding:0;margin:1.2rem 0 0;color:var(--stone-700)}
+.contact-info li{padding:.55rem 0;border-bottom:1px solid var(--stone-200)}
+.contact-info li strong{color:var(--stone-900);display:inline-block;min-width:5.5rem}
+form{background:#fff;border:1px solid var(--stone-200);border-radius:var(--radius);padding:1.8rem;box-shadow:var(--shadow)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem 1.2rem}
+.field{display:flex;flex-direction:column}
+.field.full{grid-column:1/-1}
+.field label,.field legend{font-weight:600;font-size:.9rem;margin-bottom:.35rem}
+.req{color:#9b2c1f}
+input[type=text],input[type=email],input[type=tel],select{font:inherit;padding:.75rem .9rem;border:1.5px solid var(--stone-300);border-radius:10px;background:var(--stone-50);color:var(--stone-900);width:100%}
+input:focus,select:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(31,77,58,.18)}
+.field.invalid input,.field.invalid select{border-color:#b3412f;background:#fdf5f3}
+.err{font-size:.8rem;color:#9b2c1f;min-height:1.1em;margin-top:.25rem}
+fieldset{border:0;padding:0;margin:0}
+.pills{display:flex;flex-wrap:wrap;gap:.5rem}
+.pills input{position:absolute;opacity:0;width:1px;height:1px}
+.pills label{font-weight:500;font-size:.9rem;padding:.55rem 1rem;border:1.5px solid var(--stone-300);border-radius:999px;cursor:pointer;margin:0;background:var(--stone-50)}
+.pills input:checked+label{background:var(--green);border-color:var(--green);color:#fff}
+.pills input:focus-visible+label{outline:3px solid var(--accent);outline-offset:2px}
+.form-foot{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:1.4rem}
+.form-foot small{color:var(--stone-500)}
+.confirm{display:none;background:var(--green-light);border:1px solid #b9cfc2;border-radius:var(--radius);padding:1.6rem;color:var(--green-dark)}
+.confirm.show{display:block}
+.confirm h3{color:var(--green-dark)}
+@media (max-width:860px){.contact{grid-template-columns:1fr}}
+@media (max-width:560px){.grid2{grid-template-columns:1fr}form{padding:1.3rem}}
+
+/* Footer */
+footer{background:var(--stone-900);color:#cfc6b8;padding:2.5rem 0 2rem;font-size:.92rem}
+.foot{display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;align-items:center}
+footer a{color:#fff}
+footer .logo{color:#fff}
+.sample-note{margin-top:1.4rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.12);font-size:.8rem;color:#a89f92}
+.foot-links{display:flex;gap:1.2rem;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site">
+  <nav class="container nav" aria-label="Main">
+    <a class="logo" href="#home" aria-label="Fieldstone Residential home">
+      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="9" fill="#1f4d3a"/><path d="M8 17 17 9l9 8v9H8z" fill="none" stroke="#e7e0d6" stroke-width="2.2" stroke-linejoin="round"/><path d="M14 26v-5h6v5" fill="none" stroke="#b08d57" stroke-width="2.2"/></svg>
+      Fieldstone Residential
+    </a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu"><span></span></button>
+    <ul id="nav-links">
+      <li><a href="#home" data-nav>Home</a></li>
+      <li><a href="#plans" data-nav>Our Plans</a></li>
+      <li><a href="#faq" data-nav>Buyer Q&amp;A</a></li>
+      <li><a href="#regions" data-nav>Regions</a></li>
+      <li><a href="#checklist" data-nav>Checklist</a></li>
+      <li><a href="#contact" class="cta" data-nav>Start Your Build</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- 1. HOME -->
+<section id="home" class="hero" aria-labelledby="hero-title">
+  <div class="container hero-inner">
+    <div>
+      <span class="eyebrow">Semi-custom builder · Greater Atlanta</span>
+      <h1 id="hero-title">Semi-custom homes, built around your life.</h1>
+      <p class="lead">Start with a thoughtful plan, then make it yours. We pair thoughtful floor plans with a guided selection process and fixed-price contracts, so you get a personal home without the guesswork of a full custom build.</p>
+      <div class="hero-actions">
+        <a class="btn light" href="#checklist">Start Your Journey</a>
+        <a class="btn outline" href="#plans">View Plans</a>
+      </div>
+      <div class="hero-stats" aria-label="Sample company highlights">
+        <div><strong>2</strong>Sample plans</div>
+        <div><strong>7</strong>Metro areas served</div>
+        <div><strong>9–11 mo</strong>Typical build*</div>
+      </div>
+    </div>
+    <figure class="hero-art">
+      <img src="assets/img/hartwell-three-quarter-800.webp" srcset="assets/img/hartwell-three-quarter-800.webp 800w, assets/img/hartwell-three-quarter.webp 1280w" sizes="(max-width:860px) 92vw, 480px" width="1280" height="720" alt="Artist's rendering of The Hartwell, a two-story home with light gray lap siding, a brick water table, charcoal roof and black front door" fetchpriority="high">
+      <figcaption>The Hartwell (sample plan). Artist's rendering; may differ from the floor plans.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<div class="container">
+  <div class="pillars">
+    <div class="pillar"><div class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1f4d3a" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13"/></svg></div><h3>Thoughtful plans</h3><p>Start from a well-organized layout, then adjust rooms, elevations, and flow.</p></div>
+    <div class="pillar"><div class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1f4d3a" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>Guided selections</h3><p>One design studio visit, curated finish packages, and a clear decision calendar.</p></div>
+    <div class="pillar"><div class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1f4d3a" stroke-width="2"><path d="M9 12l2 2 4-4"/><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg></div><h3>Fixed-price clarity</h3><p>Know your price before we break ground, with weekly updates through closing.</p></div>
+  </div>
+</div>
+
+<!-- 2. PLANS -->
+<section id="plans" class="section" aria-labelledby="plans-title">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Our Plans</span>
+      <h2 id="plans-title">Two sample plans to start from</h2>
+      <p>Both plans below are proof-of-concept samples shown for demonstration. Select a thumbnail to switch views, or tap the image to enlarge it.</p>
+    </div>
+    <div class="plans">
+      <!-- Plan 1: The Hartwell = Sample Two-Story 2204 -->
+      <article class="plan" aria-labelledby="p1">
+        <div class="gallery" data-gallery data-title="The Hartwell" data-slides='[{"src": "hartwell-front.webp", "full": "hartwell-front.webp", "alt": "Artist&#39;s rendering of The Hartwell from the front: two-story home with front-entry two-car garage, light gray lap siding, brick water table and black front door", "label": "Front", "plan": false, "cap": "Artist&#39;s rendering"}, {"src": "hartwell-three-quarter.webp", "full": "hartwell-three-quarter.webp", "alt": "Artist&#39;s rendering of The Hartwell from a three-quarter angle showing the front and side of the two-story home", "label": "3/4 view", "plan": false, "cap": "Artist&#39;s rendering"}, {"src": "hartwell-first-floor.webp", "full": "hartwell-first-floor-sheet.webp", "sy": 0.25, "alt": "The Hartwell first floor plan: two-car garage, foyer, stair, flex/study, powder room, pantry, drop zone, and an open kitchen with island between the family room and dining area", "label": "1st floor", "plan": true, "cap": "Floor plan \u00b7 1st floor"}, {"src": "hartwell-second-floor.webp", "full": "hartwell-second-floor-sheet.webp", "sy": 0.25, "alt": "The Hartwell second floor plan: primary bedroom with walk-in closet and bath, bedrooms 2, 3 and 4, bath 2, loft, and laundry", "label": "2nd floor", "plan": true, "cap": "Floor plan \u00b7 2nd floor"}]'>
+          <span class="gal-label" aria-hidden="true">Artist's rendering</span>
+          <button type="button" class="gal-main" aria-label="Open larger view: Artist's rendering of The Hartwell from the front: two-story home with front-entry two-car garage, light gray lap siding, brick water table and black front door" aria-haspopup="dialog">
+            <img src="assets/img/hartwell-front.webp" width="1280" height="720" alt="Artist's rendering of The Hartwell from the front: two-story home with front-entry two-car garage, light gray lap siding, brick water table and black front door" loading="lazy" decoding="async">
+            <span class="zoom-hint" aria-hidden="true">Tap to enlarge</span>
+          </button>
+          <p class="render-note"><strong>Artist's renderings.</strong> Exterior images are artistic and may differ from the floor plans (for example, roof shapes and side windows). The floor plans are the reference.</p>
+          <ul class="thumbs" aria-label="The Hartwell images"><li><button type="button" class="thumb" data-index="0" aria-current="true" aria-label="Show front"><img src="assets/img/hartwell-front-thumb.webp" width="320" height="180" alt="" loading="lazy" decoding="async"><span>Front</span></button></li><li><button type="button" class="thumb" data-index="1" aria-current="false" aria-label="Show 3/4 view"><img src="assets/img/hartwell-three-quarter-thumb.webp" width="320" height="180" alt="" loading="lazy" decoding="async"><span>3/4 view</span></button></li><li><button type="button" class="thumb is-plan" data-index="2" aria-current="false" aria-label="Show 1st floor plan"><img src="assets/img/hartwell-first-floor-thumb.webp" width="320" height="329" alt="" loading="lazy" decoding="async"><span>1st floor</span></button></li><li><button type="button" class="thumb is-plan" data-index="3" aria-current="false" aria-label="Show 2nd floor plan"><img src="assets/img/hartwell-second-floor-thumb.webp" width="320" height="329" alt="" loading="lazy" decoding="async"><span>2nd floor</span></button></li></ul>
+        </div>
+        <div class="plan-body">
+          <div class="plan-top">
+            <div><h3 id="p1">The Hartwell</h3><span class="tag">2-Story</span><span class="tag poc-tag">Sample plan</span></div>
+            <div class="price"><small>Starting at</small><strong>$524,900</strong><small>Sample pricing</small></div>
+          </div>
+          <div class="poc" role="note"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9a6a24" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16.5v.5"/></svg><span><strong>Proof-of-concept sample plan.</strong> This is a demonstration plan only. It is not a real plan offered for sale and is not intended for construction.</span></div>
+          <ul class="specs" aria-label="Plan highlights"><li>2,204 heated sq ft</li><li>4 bed</li><li>2.5 bath</li><li>2-car garage</li></ul>
+          <p>A four-bedroom, 2.5-bath two-story. The first floor has the kitchen, family room, dining, a flex/study, powder room and pantry. All four bedrooms, a loft and the laundry are upstairs.</p>
+          <table class="spec-table"><caption class="sr-only">The Hartwell plan specifications</caption><tbody><tr><th scope="row">Heated area</th><td>2,204 sq ft (942 first floor, 1,262 second floor)</td></tr><tr><th scope="row">Bedrooms / baths</th><td>4 bedrooms / 2.5 baths</td></tr><tr><th scope="row">Garage</th><td>2-car front-entry, 462 sq ft</td></tr><tr><th scope="row">Total under roof</th><td>2,714 sq ft</td></tr><tr><th scope="row">Footprint</th><td>40 ft wide &times; 37 ft deep</td></tr><tr><th scope="row">Ceilings</th><td>9 ft first floor, 8 ft second floor</td></tr><tr><th scope="row">Stories</th><td>2</td></tr></tbody></table>
+          <h4 class="feat-h">From the floor plans</h4>
+          <ul class="features">
+            <li>Kitchen with island</li><li>Family room and dining</li><li>First-floor flex/study</li><li>Powder room and pantry</li><li>Drop zone off the garage</li><li>Upstairs loft</li><li>Upstairs laundry</li><li>Primary suite with walk-in closet</li>
+          </ul>
+          <a class="btn" href="#contact" data-plan="The Hartwell">Request This Plan</a>
+        </div>
+      </article>
+      <!-- Plan 2: The Laurel = Sample Ranch 1628 -->
+      <article class="plan" aria-labelledby="p2">
+        <div class="gallery" data-gallery data-title="The Laurel" data-slides='[{"src": "laurel-front.webp", "full": "laurel-front.webp", "alt": "Artist&#39;s rendering of The Laurel from the front: single-story ranch with front-entry two-car garage, light gray lap siding, brick water table and black front door", "label": "Front", "plan": false, "cap": "Artist&#39;s rendering"}, {"src": "laurel-three-quarter.webp", "full": "laurel-three-quarter.webp", "alt": "Artist&#39;s rendering of The Laurel from a three-quarter angle showing the front and side of the ranch home", "label": "3/4 view", "plan": false, "cap": "Artist&#39;s rendering"}, {"src": "laurel-floor-plan.webp", "full": "laurel-floor-plan-sheet.webp", "sy": 0.13, "alt": "The Laurel floor plan: primary suite on one side; kitchen with island, dining and great room in the center; bedrooms 2 and 3 with bath 2 on the other side; two-car garage, laundry, pantry and foyer", "label": "Floor plan", "plan": true, "cap": "Floor plan"}]'>
+          <span class="gal-label" aria-hidden="true">Artist's rendering</span>
+          <button type="button" class="gal-main" aria-label="Open larger view: Artist's rendering of The Laurel from the front: single-story ranch with front-entry two-car garage, light gray lap siding, brick water table and black front door" aria-haspopup="dialog">
+            <img src="assets/img/laurel-front.webp" width="1280" height="720" alt="Artist's rendering of The Laurel from the front: single-story ranch with front-entry two-car garage, light gray lap siding, brick water table and black front door" loading="lazy" decoding="async">
+            <span class="zoom-hint" aria-hidden="true">Tap to enlarge</span>
+          </button>
+          <p class="render-note"><strong>Artist's renderings.</strong> Exterior images are artistic and may differ from the floor plans (for example, roof shapes and side windows). The floor plans are the reference.</p>
+          <ul class="thumbs" aria-label="The Laurel images"><li><button type="button" class="thumb" data-index="0" aria-current="true" aria-label="Show front"><img src="assets/img/laurel-front-thumb.webp" width="320" height="180" alt="" loading="lazy" decoding="async"><span>Front</span></button></li><li><button type="button" class="thumb" data-index="1" aria-current="false" aria-label="Show 3/4 view"><img src="assets/img/laurel-three-quarter-thumb.webp" width="320" height="180" alt="" loading="lazy" decoding="async"><span>3/4 view</span></button></li><li><button type="button" class="thumb is-plan" data-index="2" aria-current="false" aria-label="Show floor plan"><img src="assets/img/laurel-floor-plan-thumb.webp" width="320" height="337" alt="" loading="lazy" decoding="async"><span>Floor plan</span></button></li></ul>
+        </div>
+        <div class="plan-body">
+          <div class="plan-top">
+            <div><h3 id="p2">The Laurel</h3><span class="tag">Ranch</span><span class="tag poc-tag">Sample plan</span></div>
+            <div class="price"><small>Starting at</small><strong>$419,900</strong><small>Sample pricing</small></div>
+          </div>
+          <div class="poc" role="note"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9a6a24" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16.5v.5"/></svg><span><strong>Proof-of-concept sample plan.</strong> This is a demonstration plan only. It is not a real plan offered for sale and is not intended for construction.</span></div>
+          <ul class="specs" aria-label="Plan highlights"><li>1,628 heated sq ft</li><li>3 bed</li><li>2 bath</li><li>2-car garage</li></ul>
+          <p>A three-bedroom, two-bath, single-story ranch. The kitchen and island sit between the dining area and great room, with the primary suite on one side of the home and bedrooms 2 and 3 on the other.</p>
+          <table class="spec-table"><caption class="sr-only">The Laurel plan specifications</caption><tbody><tr><th scope="row">Heated area</th><td>1,628 sq ft</td></tr><tr><th scope="row">Bedrooms / baths</th><td>3 bedrooms / 2 baths</td></tr><tr><th scope="row">Garage</th><td>2-car front-entry, 484 sq ft</td></tr><tr><th scope="row">Total under roof</th><td>2,157 sq ft</td></tr><tr><th scope="row">Footprint</th><td>45 ft wide &times; 50 ft deep</td></tr><tr><th scope="row">Ceilings</th><td>9 ft</td></tr><tr><th scope="row">Stories</th><td>1</td></tr></tbody></table>
+          <h4 class="feat-h">From the floor plan</h4>
+          <ul class="features">
+            <li>Single-level living</li><li>Kitchen with island</li><li>Great room and dining</li><li>Split-bedroom layout</li><li>Primary suite with walk-in closet</li><li>Laundry off the garage entry</li><li>Pantry and linen closet</li><li>Covered front porch</li>
+          </ul>
+          <a class="btn" href="#contact" data-plan="The Laurel">Request This Plan</a>
+        </div>
+      </article>
+    </div>
+    <div class="common-specs">
+      <h3>Both sample plans</h3>
+      <ul>
+        <li>Slab-on-grade foundation</li>
+        <li>6/12 gable roof with charcoal shingles</li>
+        <li>Light gray Hardie lap siding</li>
+        <li>2 ft tumbled brick water table on the front</li>
+        <li>White trim</li>
+        <li>Black front door</li>
+      </ul>
+    </div>
+    <p class="fine">*Sample pricing for demonstration only. Both plans are proof-of-concept samples, not real plans offered for sale or intended for construction. Exterior images are artist's renderings and may differ from the floor plans; the floor plans are the reference. Prices exclude lot cost and would vary by community, options, and site conditions.</p>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<dialog class="lightbox" id="lightbox" aria-labelledby="lb-title">
+  <div class="lb-inner">
+    <div class="lb-bar">
+      <div class="lb-title" id="lb-title"><span id="lb-name"></span><small id="lb-cap"></small></div>
+      <div class="lb-tools">
+        <button type="button" class="lb-btn" id="lb-zoom" aria-pressed="false" hidden>Full sheet</button>
+        <button type="button" class="lb-btn" id="lb-close" aria-label="Close">&#x2715;</button>
+      </div>
+    </div>
+    <div class="lb-stage" id="lb-stage"><img id="lb-img" src="data:," alt=""></div>
+    <div class="lb-nav">
+      <button type="button" class="lb-btn" id="lb-prev" aria-label="Previous image">&#8249; Prev</button>
+      <span id="lb-count" aria-live="polite"></span>
+      <button type="button" class="lb-btn" id="lb-next" aria-label="Next image">Next &#8250;</button>
+    </div>
+  </div>
+</dialog>
+
+<!-- 3. FAQ -->
+<section id="faq" class="section alt" aria-labelledby="faq-title">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Buyer Q&amp;A</span>
+      <h2 id="faq-title">Common questions, answered</h2>
+      <p>Answers below are placeholders to be replaced with Fieldstone's actual policies.</p>
+    </div>
+    <div class="faq" id="accordion"></div>
+  </div>
+</section>
+
+<!-- 4. REGIONS -->
+<section id="regions" class="section" aria-labelledby="regions-title">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Regions We Serve</span>
+      <h2 id="regions-title">Building across Greater Atlanta</h2>
+      <p>Select an area to see typical lots, sample communities, and approximate commute times.</p>
+    </div>
+    <div class="regions">
+      <ul class="region-list" id="region-list" aria-label="Service areas"></ul>
+      <div class="region-panel">
+        <div class="map" role="img" aria-label="Map placeholder">
+          <svg viewBox="0 0 600 220" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <path d="M0 150 C120 120 200 180 320 140 S500 90 600 120" stroke="#b7c9bd" stroke-width="10" fill="none" opacity=".7"/>
+            <path d="M300 0 V220 M0 110 H600 M120 0 L480 220 M480 0 L120 220" stroke="#d6ccbe" stroke-width="5" fill="none"/>
+            <circle cx="300" cy="110" r="9" fill="#2b2620"/><text x="314" y="106" font-size="12" font-family="Inter,system-ui,sans-serif" fill="#2b2620" font-weight="600">Downtown ATL</text>
+            <g id="map-pin"><circle cx="0" cy="0" r="22" fill="#1f4d3a" opacity=".18"/><circle cx="0" cy="0" r="9" fill="#1f4d3a" stroke="#fff" stroke-width="3"/></g>
+          </svg>
+          <span class="map-note">Map placeholder · Interactive map to be embedded</span>
+        </div>
+        <div class="region-detail" id="region-detail" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. CHECKLIST -->
+<section id="checklist" class="section alt" aria-labelledby="check-title">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Start Your Journey</span>
+      <h2 id="check-title">Buyer prep checklist</h2>
+      <p>Ten steps from first idea to move-in. Check them off as you go (progress isn't saved between visits).</p>
+    </div>
+    <div class="check-wrap">
+      <ul class="checklist" id="check-items"></ul>
+      <aside class="progress-card" aria-labelledby="prog-label">
+        <div id="prog-label" class="eyebrow">Your progress</div>
+        <div class="pct" id="pct">0%</div>
+        <div class="bar" role="progressbar" aria-label="Checklist progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="bar"><span></span></div>
+        <p id="prog-text">0 of 10 steps complete. Let's get started.</p>
+        <a class="btn" href="#contact">Talk to Our Team</a>
+        <button type="button" class="linkbtn" id="reset">Reset checklist</button>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- 6. CONTACT -->
+<section id="contact" class="section" aria-labelledby="contact-title">
+  <div class="container contact">
+    <div class="contact-info">
+      <span class="eyebrow">Start Your Build</span>
+      <h2 id="contact-title">Let's plan your home</h2>
+      <p>Tell us a little about what you're looking for. A new home consultant will follow up within one business day.</p>
+      <ul>
+        <li><strong>Phone</strong> (404) 555-0142 <span class="tag">Sample</span></li>
+        <li><strong>Email</strong> hello@fieldstone.example</li>
+        <li><strong>Studio</strong> By appointment, Mon–Sat</li>
+      </ul>
+    </div>
+    <div>
+      <!--
+        ================================================================
+        TODO CRM INTEGRATION:
+        This form currently does NOT send data anywhere. It validates
+        and shows an on-page confirmation only.
+        To connect to a CRM (e.g. HubSpot, Salesforce, Follow Up Boss,
+        Lasso, BuilderPrime), either:
+          1) set the form's action/method to the CRM's form endpoint, or
+          2) POST the formData object in the JS submit handler below
+             (search "TODO: CRM INTEGRATION").
+        Add hidden fields for UTM source/medium/campaign if needed.
+        ================================================================
+      -->
+      <form id="lead-form" novalidate aria-describedby="form-note">
+        <div class="grid2">
+          <div class="field"><label for="f-name">Full name <span class="req" aria-hidden="true">*</span></label><input id="f-name" name="name" type="text" autocomplete="name" required><span class="err" id="e-name"></span></div>
+          <div class="field"><label for="f-email">Email <span class="req" aria-hidden="true">*</span></label><input id="f-email" name="email" type="email" autocomplete="email" required><span class="err" id="e-email"></span></div>
+          <div class="field"><label for="f-phone">Phone <span class="req" aria-hidden="true">*</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="(555) 555-5555" required><span class="err" id="e-phone"></span></div>
+          <div class="field"><label for="f-region">Region of interest <span class="req" aria-hidden="true">*</span></label><select id="f-region" name="region" required><option value="">Select a region</option></select><span class="err" id="e-region"></span></div>
+          <div class="field full"><label for="f-plan">Plan of interest <span class="req" aria-hidden="true">*</span></label><select id="f-plan" name="plan" required><option value="">Select a plan</option><option>The Hartwell</option><option>The Laurel</option><option>Not sure yet</option></select><span class="err" id="e-plan"></span></div>
+          <fieldset class="field full" id="f-timeline">
+            <legend>Preferred timeline <span class="req" aria-hidden="true">*</span></legend>
+            <div class="pills">
+              <input type="radio" id="t1" name="timeline" value="0–3 months"><label for="t1">0–3 months</label>
+              <input type="radio" id="t2" name="timeline" value="3–6 months"><label for="t2">3–6 months</label>
+              <input type="radio" id="t3" name="timeline" value="6–12 months"><label for="t3">6–12 months</label>
+              <input type="radio" id="t4" name="timeline" value="12+ months"><label for="t4">12+ months</label>
+            </div>
+            <span class="err" id="e-timeline"></span>
+          </fieldset>
+        </div>
+        <div class="form-foot">
+          <button type="submit" class="btn">Submit Request</button>
+          <small id="form-note">* Required. Sample form: no data is sent.</small>
+        </div>
+      </form>
+      <div class="confirm" id="confirm" role="status" tabindex="-1">
+        <h3>Thanks, <span id="c-name"></span>! Your request is in.</h3>
+        <p id="c-summary"></p>
+        <p style="margin:0">A Fieldstone consultant will reach out within one business day. <em>(Demo: nothing was actually sent.)</em></p>
+        <button type="button" class="btn outline" id="again" style="margin-top:1rem">Submit another request</button>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="foot">
+      <a class="logo" href="#home">
+        <svg width="30" height="30" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="9" fill="#1f4d3a"/><path d="M8 17 17 9l9 8v9H8z" fill="none" stroke="#e7e0d6" stroke-width="2.2" stroke-linejoin="round"/><path d="M14 26v-5h6v5" fill="none" stroke="#b08d57" stroke-width="2.2"/></svg>
+        Fieldstone Residential
+      </a>
+      <div class="foot-links"><a href="#plans">Plans</a><a href="#regions">Regions</a><a href="#faq">Q&amp;A</a><a href="#contact">Contact</a></div>
+    </div>
+    <p class="sample-note">© <span id="year"></span> Fieldstone Residential. This is a sample demonstration site for a fictional builder. Plans are proof-of-concept samples (not for sale or construction), renderings are artistic, and prices, communities, and answers are placeholders.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  /* ---------- Mobile nav ---------- */
+  var menuBtn = document.querySelector(".menu-btn");
+  var navList = document.getElementById("nav-links");
+  menuBtn.addEventListener("click", function(){
+    var open = menuBtn.getAttribute("aria-expanded") === "true";
+    menuBtn.setAttribute("aria-expanded", String(!open));
+    menuBtn.setAttribute("aria-label", open ? "Open menu" : "Close menu");
+    navList.classList.toggle("open", !open);
+  });
+  navList.addEventListener("click", function(e){
+    if (e.target.closest("a")) { navList.classList.remove("open"); menuBtn.setAttribute("aria-expanded","false"); menuBtn.setAttribute("aria-label","Open menu"); }
+  });
+  document.addEventListener("keydown", function(e){
+    if (e.key === "Escape" && navList.classList.contains("open")) { navList.classList.remove("open"); menuBtn.setAttribute("aria-expanded","false"); menuBtn.focus(); }
+  });
+
+  /* ---------- Active section highlighting ---------- */
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll("[data-nav]"));
+  var sections = navLinks.map(function(a){ return document.querySelector(a.getAttribute("href")); });
+  function setActive(){
+    var y = window.scrollY + 120, idx = 0;
+    sections.forEach(function(s,i){ if (s && s.offsetTop <= y) idx = i; });
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) idx = sections.length - 1;
+    navLinks.forEach(function(a,i){ a.classList.toggle("active", i === idx); if (i===idx) a.setAttribute("aria-current","true"); else a.removeAttribute("aria-current"); });
+  }
+  window.addEventListener("scroll", setActive, {passive:true});
+  window.addEventListener("resize", setActive);
+  setActive();
+
+  /* ---------- FAQ accordion ---------- */
+  var faqs = [
+    ["How long does a semi-custom build take?", "Most homes take 9–11 months from contract to closing: about 6–8 weeks for design, selections, and permits, then 7–9 months of construction depending on weather and options."],
+    ["What does my lot need to meet?", "We review zoning, setbacks, slope, soil, and utility access (water, sewer or septic approval, power). A survey and site evaluation are completed before pricing is finalized."],
+    ["How do deposits work?", "A refundable reservation deposit holds your build slot. At contract, an earnest money deposit (typically 5–10%) is applied to your purchase price, with design-option deposits due at selections."],
+    ["What customizations are available?", "Choose from elevation styles, structural options (extended rooms, added bedroom or bonus room, covered porches), and curated interior finish packages. Moving load-bearing walls is evaluated case by case."],
+    ["Do you provide financing?", "We don't lend directly, but we work with preferred construction and permanent loan partners and can introduce you. You're always free to use your own lender."],
+    ["Can you build on land I already own?", "Yes, within our service areas. We'll evaluate your lot first and include any site work, such as clearing, grading, or driveway, in your quote."],
+    ["What warranty do you offer?", "Homes include a 1-year workmanship warranty, 2-year systems coverage, and a 10-year structural warranty through a third-party provider."],
+    ["How will I stay updated during construction?", "You'll have a dedicated project manager, weekly photo updates, and scheduled walkthroughs at pre-drywall and before closing."]
+  ];
+  var acc = document.getElementById("accordion");
+  faqs.forEach(function(f,i){
+    var item = document.createElement("div");
+    item.className = "acc-item";
+    item.innerHTML =
+      '<h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="acc-p'+i+'" id="acc-b'+i+'">'+
+        '<span>'+f[0]+'</span><span class="chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1f4d3a" stroke-width="3"><path d="M6 9l6 6 6-6"/></svg></span></button></h3>'+
+      '<div class="acc-panel" id="acc-p'+i+'" role="region" aria-labelledby="acc-b'+i+'" hidden><span class="tag">Placeholder answer</span><p>'+f[1]+'</p></div>';
+    acc.appendChild(item);
+  });
+  acc.addEventListener("click", function(e){
+    var btn = e.target.closest(".acc-btn"); if (!btn) return;
+    var panel = document.getElementById(btn.getAttribute("aria-controls"));
+    var open = btn.getAttribute("aria-expanded") === "true";
+    btn.setAttribute("aria-expanded", String(!open));
+    panel.hidden = open;
+  });
+
+  /* ---------- Regions ---------- */
+  var regions = [
+    {id:"north-fulton", name:"North Fulton", cities:"Alpharetta · Roswell · Milton · Johns Creek", lots:["Wooded ½–1 acre lots","Estate lots in Milton (1+ acres)","Infill lots near town centers"], communities:["Hollow Creek Preserve","Milton Meadows","Wren's Landing"], commute:"35–50 min", pin:[325,45]},
+    {id:"cobb", name:"Cobb", cities:"Marietta · Kennesaw · Acworth · Powder Springs", lots:["Suburban ¼–½ acre lots","Rolling, sloped lots","Lake-area lots near Acworth"], communities:["Kennesaw Ridge","Laurel Grove","Old Mill Crossing"], commute:"30–45 min", pin:[200,60]},
+    {id:"gwinnett", name:"Gwinnett", cities:"Suwanee · Lawrenceville · Buford · Dacula", lots:["Planned-community lots","Cul-de-sac ⅓ acre lots","Larger lots toward Dacula"], communities:["Suwanee Station","Briar Hollow","Mulberry Fields"], commute:"35–55 min", pin:[420,60]},
+    {id:"south-fulton", name:"South Fulton", cities:"South Fulton · Fairburn · Union City · Palmetto", lots:["Larger, flatter lots","Emerging-area infill","Acreage near Palmetto"], communities:["Cedar Bend","Fairburn Commons","Stonegate South"], commute:"25–35 min", pin:[235,170]},
+    {id:"henry", name:"Henry County", cities:"McDonough · Stockbridge · Hampton · Locust Grove", lots:["Value-friendly ½ acre lots","Rural acreage","New-phase community lots"], communities:["McDonough Square Homes","Oak Hollow","Bridgewater Pointe"], commute:"30–45 min", pin:[395,175]},
+    {id:"cherokee", name:"Cherokee", cities:"Woodstock · Canton · Holly Springs", lots:["Wooded hillside lots","Lake-adjacent lots","Acreage in north Cherokee"], communities:["Woodstock Ridge","Canton Hills","Etowah Bend"], commute:"45–60 min", pin:[250,40]},
+    {id:"fayette", name:"Fayette", cities:"Fayetteville · Peachtree City · Tyrone", lots:["Golf-cart community lots","Mature-tree ½–1 acre lots","Country estate lots"], communities:["Peachtree Glen","Tyrone Farms","Flat Creek Commons"], commute:"35–50 min", pin:[160,180]}
+  ];
+  var list = document.getElementById("region-list");
+  var detail = document.getElementById("region-detail");
+  var pin = document.getElementById("map-pin");
+  var regionSelect = document.getElementById("f-region");
+  regions.forEach(function(r,i){
+    var li = document.createElement("li");
+    li.innerHTML = '<button type="button" class="region-btn" data-region="'+r.id+'" aria-pressed="'+(i===0)+'" aria-controls="region-detail">'+r.name+'<small aria-hidden="true">›</small></button>';
+    list.appendChild(li);
+    var opt = document.createElement("option"); opt.value = r.name; opt.textContent = r.name; regionSelect.appendChild(opt);
+  });
+  var opt2 = document.createElement("option"); opt2.value="Not sure yet"; opt2.textContent="Not sure yet"; regionSelect.appendChild(opt2);
+  function showRegion(id){
+    var r = regions.filter(function(x){return x.id===id;})[0]; if (!r) return;
+    list.querySelectorAll(".region-btn").forEach(function(b){ b.setAttribute("aria-pressed", String(b.dataset.region===id)); });
+    pin.setAttribute("transform","translate("+r.pin[0]+","+r.pin[1]+")");
+    detail.innerHTML =
+      '<h3>'+r.name+'</h3><p class="sub">'+r.cities+'</p>'+
+      '<div class="detail-grid">'+
+        '<div><h4>Typical lot types</h4><ul>'+r.lots.map(function(l){return '<li>'+l+'</li>';}).join('')+'</ul></div>'+
+        '<div><h4>Sample communities</h4><ul>'+r.communities.map(function(c){return '<li>'+c+'</li>';}).join('')+'</ul><p style="margin-top:.5rem"><span class="tag">Fictional / sample</span></p></div>'+
+        '<div><h4>Commute to downtown</h4><p class="commute">'+r.commute+'</p><p>Approximate off-peak drive; rush hour can add 15–30+ min.</p></div>'+
+      '</div>'+
+      '<p style="margin:1.2rem 0 0"><a class="btn outline" href="#contact" data-region-cta="'+r.name+'">Build in '+r.name+'</a></p>';
+  }
+  list.addEventListener("click", function(e){ var b = e.target.closest(".region-btn"); if (b) showRegion(b.dataset.region); });
+  detail.addEventListener("click", function(e){ var a = e.target.closest("[data-region-cta]"); if (a) regionSelect.value = a.dataset.regionCta; });
+  showRegion(regions[0].id);
+
+  /* ---------- Plan galleries + lightbox ---------- */
+  var lb = document.getElementById("lightbox"), lbImg = document.getElementById("lb-img"),
+      lbName = document.getElementById("lb-name"), lbCap = document.getElementById("lb-cap"),
+      lbCount = document.getElementById("lb-count"), lbStage = document.getElementById("lb-stage"),
+      lbZoom = document.getElementById("lb-zoom"), lbState = {slides:null, i:0, title:"", gal:null};
+  function setZoom(on){
+    var s = lbState.slides && lbState.slides[lbState.i];
+    lbStage.classList.toggle("zoomed", on); lbZoom.setAttribute("aria-pressed", String(on));
+    lbZoom.textContent = on ? "Back to plan" : "Full sheet";
+    if (s) lbImg.src = "assets/img/" + (on && s.plan ? s.full : s.src);
+    lbStage.classList.toggle("is-plan", !!(s && s.plan) && !on);
+    if (on){ lbImg.onload = function(){ lbStage.scrollLeft = 200; lbStage.scrollTop = Math.round((s.sy || 0) * lbImg.height); lbImg.onload = null; }; } else { lbStage.scrollTop = 0; lbStage.scrollLeft = 0; }
+  }
+  function lbShow(i){
+    var sl = lbState.slides, n = sl.length; i = (i + n) % n; lbState.i = i;
+    var s = sl[i];
+    lbImg.alt = s.alt;
+    lbName.textContent = lbState.title + " · " + s.label + (s.plan && !/plan$/.test(s.label) ? " plan" : "");
+    lbCap.textContent = s.plan ? "Floor plan (reference). Proof-of-concept sample, not for construction." : "Artist's rendering; may differ from the floor plans.";
+    lbCount.textContent = (i + 1) + " of " + n;
+    lbZoom.hidden = !s.plan; setZoom(false);
+    if (lbState.gal) selectSlide(lbState.gal, i);
+  }
+  function selectSlide(g, i){
+    var sl = JSON.parse(g.dataset.slides), s = sl[i];
+    var main = g.querySelector(".gal-main"), img = main.querySelector("img");
+    img.src = "assets/img/" + s.src; img.alt = s.alt;
+    main.classList.toggle("is-plan", s.plan);
+    main.setAttribute("aria-label", "Open larger view: " + s.alt);
+    g.querySelector(".gal-label").textContent = s.cap;
+    g.dataset.index = i;
+    g.querySelectorAll(".thumb").forEach(function(t){ t.setAttribute("aria-current", String(+t.dataset.index === i)); });
+  }
+  document.querySelectorAll("[data-gallery]").forEach(function(g){
+    g.dataset.index = 0;
+    g.addEventListener("click", function(e){
+      var t = e.target.closest(".thumb");
+      if (t){ selectSlide(g, +t.dataset.index); return; }
+      if (e.target.closest(".gal-main")){
+        lbState = {slides: JSON.parse(g.dataset.slides), i: +g.dataset.index, title: g.dataset.title, gal: g};
+        lbShow(lbState.i);
+        if (typeof lb.showModal === "function") lb.showModal(); else lb.setAttribute("open","");
+        document.getElementById("lb-close").focus();
+      }
+    });
+  });
+  function lbClose(){ if (lb.open){ if (typeof lb.close === "function") lb.close(); else lb.removeAttribute("open"); } }
+  lb.addEventListener("close", function(){ setZoom(false); var g = lbState.gal; if (g) g.querySelector(".gal-main").focus(); });
+  document.getElementById("lb-close").addEventListener("click", lbClose);
+  document.getElementById("lb-prev").addEventListener("click", function(){ lbShow(lbState.i - 1); });
+  document.getElementById("lb-next").addEventListener("click", function(){ lbShow(lbState.i + 1); });
+  lbZoom.addEventListener("click", function(){ setZoom(!lbStage.classList.contains("zoomed")); });
+  lb.addEventListener("click", function(e){ if (e.target === lb) lbClose(); });
+  lb.addEventListener("keydown", function(e){
+    if (e.key === "ArrowLeft"){ e.preventDefault(); lbShow(lbState.i - 1); }
+    else if (e.key === "ArrowRight"){ e.preventDefault(); lbShow(lbState.i + 1); }
+  });
+  var tx = null;
+  lbStage.addEventListener("touchstart", function(e){ tx = lbStage.classList.contains("zoomed") ? null : e.touches[0].clientX; }, {passive:true});
+  lbStage.addEventListener("touchend", function(e){ if (tx === null) return; var dx = e.changedTouches[0].clientX - tx; if (Math.abs(dx) > 50) lbShow(lbState.i + (dx < 0 ? 1 : -1)); tx = null; });
+
+  /* ---------- Plan buttons preselect plan ---------- */
+  var planSelect = document.getElementById("f-plan");
+  document.querySelectorAll("[data-plan]").forEach(function(a){
+    a.addEventListener("click", function(){ planSelect.value = a.dataset.plan; clearErr("plan"); });
+  });
+
+  /* ---------- Checklist (no persistence) ---------- */
+  var steps = [
+    ["Get pre-approved","Talk to a lender about construction and permanent financing."],
+    ["Review your budget","Set a target for home, lot, options, and closing costs."],
+    ["List your must-haves","Bedrooms, main-level suite, office, yard size, schools."],
+    ["Choose a plan","Pick a starting plan that fits your lifestyle."],
+    ["Select a lot or community","Choose a community lot or have us evaluate your land."],
+    ["Personalize the layout","Review structural options and elevation styles."],
+    ["Pick your finishes","Visit the design studio for flooring, cabinets, and fixtures."],
+    ["Sign your contract","Lock in fixed pricing and your build schedule."],
+    ["Track construction","Attend pre-drywall and frame walkthroughs."],
+    ["Final walkthrough & closing","Review punch list, get your keys, and move in."]
+  ];
+  var ul = document.getElementById("check-items");
+  steps.forEach(function(s,i){
+    var li = document.createElement("li");
+    li.innerHTML = '<label for="c'+i+'"><input type="checkbox" id="c'+i+'"><span><span class="step-t">'+(i+1)+'. '+s[0]+'</span><span class="step-d">'+s[1]+'</span></span></label>';
+    ul.appendChild(li);
+  });
+  var boxes = ul.querySelectorAll("input[type=checkbox]");
+  var bar = document.getElementById("bar"), fill = bar.querySelector("span"), pct = document.getElementById("pct"), ptxt = document.getElementById("prog-text");
+  function updateProgress(){
+    var done = 0;
+    boxes.forEach(function(b){ if (b.checked) done++; b.closest("label").classList.toggle("done", b.checked); });
+    var p = Math.round(done / boxes.length * 100);
+    fill.style.width = p + "%"; pct.textContent = p + "%"; bar.setAttribute("aria-valuenow", p);
+    ptxt.textContent = done + " of " + boxes.length + " steps complete. " + (p===100 ? "You're ready to build!" : p>=50 ? "Great progress." : done ? "Nice start." : "Let's get started.");
+  }
+  ul.addEventListener("change", updateProgress);
+  document.getElementById("reset").addEventListener("click", function(){ boxes.forEach(function(b){b.checked=false;}); updateProgress(); });
+  updateProgress();
+
+  /* ---------- Form ---------- */
+  var form = document.getElementById("lead-form"), confirmBox = document.getElementById("confirm");
+  function setErr(k,msg){ var e=document.getElementById("e-"+k); e.textContent=msg; var f=e.closest(".field"); f.classList.add("invalid"); var inp=f.querySelector("input,select"); if(inp){inp.setAttribute("aria-invalid","true"); inp.setAttribute("aria-describedby","e-"+k);} }
+  function clearErr(k){ var e=document.getElementById("e-"+k); e.textContent=""; var f=e.closest(".field"); f.classList.remove("invalid"); var inp=f.querySelector("input,select"); if(inp) inp.removeAttribute("aria-invalid"); }
+  form.addEventListener("input", function(e){ var n=e.target.name; if(n && document.getElementById("e-"+n)) clearErr(n); });
+  form.addEventListener("change", function(e){ var n=e.target.name; if(n && document.getElementById("e-"+n)) clearErr(n); });
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var d = new FormData(form), ok = true, first = null;
+    var formData = {
+      name:(d.get("name")||"").trim(), email:(d.get("email")||"").trim(), phone:(d.get("phone")||"").trim(),
+      region:d.get("region")||"", plan:d.get("plan")||"", timeline:d.get("timeline")||"",
+      source:"fieldstone-sample-site", submittedAt:new Date().toISOString()
+    };
+    ["name","email","phone","region","plan","timeline"].forEach(clearErr);
+    function fail(k,m,el){ setErr(k,m); ok=false; if(!first) first=el; }
+    if (formData.name.length < 2) fail("name","Please enter your name.",document.getElementById("f-name"));
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(formData.email)) fail("email","Please enter a valid email.",document.getElementById("f-email"));
+    if (formData.phone.replace(/\D/g,"").length < 10) fail("phone","Please enter a 10-digit phone number.",document.getElementById("f-phone"));
+    if (!formData.region) fail("region","Please choose a region.",document.getElementById("f-region"));
+    if (!formData.plan) fail("plan","Please choose a plan.",document.getElementById("f-plan"));
+    if (!formData.timeline) fail("timeline","Please choose a timeline.",document.getElementById("t1"));
+    if (!ok){ first.focus(); return; }
+
+    // TODO: CRM INTEGRATION — send formData to CRM endpoint here
+    // Example:
+    // fetch("https://YOUR-CRM-ENDPOINT/leads", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify(formData)
+    // }).then(showConfirmation).catch(showError);
+
+    document.getElementById("c-name").textContent = formData.name.split(" ")[0];
+    document.getElementById("c-summary").textContent = "Plan: " + formData.plan + " · Region: " + formData.region + " · Timeline: " + formData.timeline + ".";
+    form.hidden = true; confirmBox.classList.add("show"); confirmBox.focus();
+  });
+  document.getElementById("again").addEventListener("click", function(){ form.reset(); form.hidden = false; confirmBox.classList.remove("show"); document.getElementById("f-name").focus(); });
+})();
+</script>
+</body>
+</html>
