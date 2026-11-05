@@ -76,7 +76,8 @@ header.site{position:sticky;top:0;z-index:100;background:rgba(250,248,245,.94);b
 .menu-btn[aria-expanded="true"] span{background:transparent}
 .menu-btn[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg)}
 .menu-btn[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg)}
-@media (max-width:860px){
+@media (max-width:1100px) and (min-width:941px){.nav ul{gap:.1rem}.nav ul a{padding:.45rem .6rem;font-size:.9rem}.logo{font-size:1.08rem}}
+@media (max-width:940px){
   .menu-btn{display:inline-flex}
   .nav ul{display:none;position:absolute;top:var(--header-h);left:0;right:0;flex-direction:column;background:var(--stone-50);border-bottom:1px solid var(--stone-200);padding:.75rem 1.25rem 1.25rem;box-shadow:var(--shadow)}
   .nav ul.open{display:flex}
@@ -246,6 +247,15 @@ header.site{position:sticky;top:0;z-index:100;background:rgba(250,248,245,.94);b
 .progress-card .btn{width:100%;margin-top:.4rem}
 .linkbtn{background:none;border:0;color:var(--stone-700);text-decoration:underline;font:inherit;font-size:.85rem;cursor:pointer;margin-top:.8rem;padding:.2rem}
 @media (max-width:860px){.check-wrap{grid-template-columns:1fr}.progress-card{position:static;order:-1}}
+.ltp-callout{display:flex;align-items:center;gap:1.2rem;margin-top:1.6rem;background:#fff;border:1px solid var(--stone-200);border-left:5px solid var(--accent);border-radius:var(--radius);box-shadow:var(--shadow);padding:1rem 1.2rem;text-decoration:none;color:var(--stone-900);transition:border-color .2s,transform .15s}
+.ltp-callout:hover{border-color:var(--green);border-left-color:var(--accent)}
+.ltp-callout img{flex:none;width:120px;height:84px;object-fit:cover;border-radius:10px}
+.ltp-text{flex:1;min-width:0;display:flex;flex-direction:column}
+.ltp-text .eyebrow{margin-bottom:.2rem;color:#8a6a35}
+.ltp-text strong{font-family:var(--serif);font-size:1.2rem;font-weight:600;line-height:1.25}
+.ltp-text span:last-child{font-size:.9rem;color:var(--stone-700)}
+.ltp-go{flex:none;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--green);color:#fff;font-size:1.2rem}
+@media (max-width:560px){.ltp-callout{flex-wrap:wrap}.ltp-callout img{width:100%;height:120px}.ltp-go{display:none}}
 
 /* Form */
 .contact{display:grid;grid-template-columns:.85fr 1.15fr;gap:2.5rem;align-items:start}
@@ -301,6 +311,7 @@ footer .logo{color:#fff}
       <li><a href="#faq" data-nav>Buyer Q&amp;A</a></li>
       <li><a href="#regions" data-nav>Regions</a></li>
       <li><a href="#checklist" data-nav>Checklist</a></li>
+      <li><a href="land-to-pad.html">Land to Pad</a></li>
       <li><a href="#contact" class="cta" data-nav>Start Your Build</a></li>
     </ul>
   </nav>
@@ -495,6 +506,11 @@ footer .logo{color:#fff}
         <button type="button" class="linkbtn" id="reset">Reset checklist</button>
       </aside>
     </div>
+    <a class="ltp-callout" href="land-to-pad.html">
+      <img src="assets/img/ltp-pads-aerial-800.webp" width="800" height="600" alt="" loading="lazy" decoding="async">
+      <span class="ltp-text"><span class="eyebrow">Building on your own land?</span><strong>Land to Pad: the development roadmap</strong><span>See how raw land becomes a pad-ready lot in three phases and six steps, with sample Georgia single-lot cost ranges.</span></span>
+      <span class="ltp-go" aria-hidden="true">&rarr;</span>
+    </a>
   </div>
 </section>
 
@@ -566,7 +582,7 @@ footer .logo{color:#fff}
         <svg width="30" height="30" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="9" fill="#1f4d3a"/><path d="M8 17 17 9l9 8v9H8z" fill="none" stroke="#e7e0d6" stroke-width="2.2" stroke-linejoin="round"/><path d="M14 26v-5h6v5" fill="none" stroke="#b08d57" stroke-width="2.2"/></svg>
         Fieldstone Residential
       </a>
-      <div class="foot-links"><a href="#plans">Plans</a><a href="#regions">Regions</a><a href="#faq">Q&amp;A</a><a href="#contact">Contact</a></div>
+      <div class="foot-links"><a href="#plans">Plans</a><a href="#regions">Regions</a><a href="#faq">Q&amp;A</a><a href="land-to-pad.html">Land to Pad</a><a href="#contact">Contact</a></div>
     </div>
     <p class="sample-note">© <span id="year"></span> Fieldstone Residential. This is a sample demonstration site for a fictional builder. Plans are proof-of-concept samples (not for sale or construction), renderings are artistic, and prices, communities, and answers are placeholders.</p>
   </div>

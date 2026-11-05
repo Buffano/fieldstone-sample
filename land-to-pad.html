@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Land to Pad-Ready Roadmap | Fieldstone Residential (Sample)</title>
+<meta name="description" content="Sample reference page for Fieldstone Residential, a fictional builder: how raw land becomes pad-ready lots in three phases and six steps, with sample Georgia single-lot development cost ranges.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1f4d3a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Land to Pad-Ready | Fieldstone Residential (Sample Site)">
+<meta property="og:description" content="Sample demo page: the development roadmap from raw land to pad-ready lots, with sample Georgia single-lot cost ranges.">
+<meta property="og:image" content="https://buffano.github.io/fieldstone-sample/assets/img/ltp-pads-aerial.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preload" as="image" href="assets/img/ltp-pads-aerial-800.webp" imagesrcset="assets/img/ltp-pads-aerial-800.webp 800w, assets/img/ltp-pads-aerial.webp 1152w" imagesizes="(max-width:860px) 92vw, 540px">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Shared base (header, buttons, footer) mirrors the inline CSS in index.html. Keep both in sync. */
+:root{
+  --stone-50:#faf8f5; --stone-100:#f3efe9; --stone-200:#e7e0d6; --stone-300:#d6ccbe;
+  --stone-500:#9a8e7e; --stone-700:#5c5348; --stone-900:#2b2620;
+  --green:#1f4d3a; --green-dark:#163a2b; --green-light:#e3ece6; --accent:#b08d57;
+  --radius:14px; --shadow:0 6px 24px rgba(43,38,32,.08);
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --header-h:68px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 8px)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;font-family:var(--sans);color:var(--stone-900);background:var(--stone-50);line-height:1.6;font-size:16px}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.2;margin:0 0 .5em;color:var(--stone-900)}
+h2{font-size:clamp(1.7rem,3vw,2.3rem)}
+h3{font-size:1.3rem}
+p{margin:0 0 1em}
+a{color:var(--green)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}
+.container{width:min(1140px,100% - 2.5rem);margin-inline:auto}
+.skip{position:absolute;left:-9999px;top:0;background:var(--green);color:#fff;padding:.6rem 1rem;z-index:200}
+.skip:focus{left:1rem;top:1rem}
+.eyebrow{display:inline-block;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:.6rem}
+.section{padding:clamp(3.5rem,7vw,5.5rem) 0}
+.section.alt{background:var(--stone-100)}
+.section-head{max-width:640px;margin-bottom:2.2rem}
+.section-head p{color:var(--stone-700)}
+.tag{display:inline-block;font-size:.72rem;font-weight:600;background:var(--stone-200);color:var(--stone-700);padding:.15rem .55rem;border-radius:999px;letter-spacing:.02em}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font:600 .98rem var(--sans);padding:.8rem 1.4rem;border-radius:999px;border:2px solid var(--green);background:var(--green);color:#fff;text-decoration:none;cursor:pointer;transition:background .2s,color .2s,transform .15s}
+.btn:hover{background:var(--green-dark);border-color:var(--green-dark)}
+.btn:active{transform:translateY(1px)}
+.btn.outline{background:transparent;color:var(--green)}
+.btn.outline:hover{background:var(--green);color:#fff}
+.btn.light{background:#fff;color:var(--green);border-color:#fff}
+.btn.light:hover{background:var(--stone-100)}
+
+/* Header */
+header.site{position:sticky;top:0;z-index:100;background:rgba(250,248,245,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--stone-200)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:var(--header-h)}
+.logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--stone-900);font-family:var(--serif);font-size:1.2rem;font-weight:600}
+.logo svg{flex:none}
+.nav ul{list-style:none;display:flex;gap:.3rem;margin:0;padding:0}
+.nav ul a{display:block;padding:.5rem .8rem;border-radius:999px;text-decoration:none;color:var(--stone-700);font-weight:500;font-size:.95rem}
+.nav ul a:hover{color:var(--green);background:var(--green-light)}
+.nav ul a.active{color:var(--green);background:var(--green-light)}
+.nav ul a.cta{background:var(--green);color:#fff}
+.nav ul a.cta:hover,.nav ul a.cta.active{background:var(--green-dark);color:#fff}
+.menu-btn{display:none;background:none;border:1px solid var(--stone-300);border-radius:10px;width:44px;height:44px;cursor:pointer;align-items:center;justify-content:center}
+.menu-btn span,.menu-btn span::before,.menu-btn span::after{display:block;width:20px;height:2px;background:var(--stone-900);position:relative;transition:transform .2s}
+.menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0}
+.menu-btn span::before{top:-6px}.menu-btn span::after{top:6px}
+.menu-btn[aria-expanded="true"] span{background:transparent}
+.menu-btn[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg)}
+@media (max-width:1100px) and (min-width:941px){.nav ul{gap:.1rem}.nav ul a{padding:.45rem .6rem;font-size:.9rem}.logo{font-size:1.08rem}}
+@media (max-width:940px){
+  .menu-btn{display:inline-flex}
+  .nav ul{display:none;position:absolute;top:var(--header-h);left:0;right:0;flex-direction:column;background:var(--stone-50);border-bottom:1px solid var(--stone-200);padding:.75rem 1.25rem 1.25rem;box-shadow:var(--shadow)}
+  .nav ul.open{display:flex}
+  .nav ul a{padding:.8rem 1rem}
+}
+.render-note{margin:0;padding:.55rem 1rem;font-size:.78rem;line-height:1.4;color:var(--stone-700);background:#fbf6ec;border-top:1px solid #eadfca;border-bottom:1px solid var(--stone-200)}
+.render-note strong{color:var(--stone-900)}
+.poc{display:flex;gap:.6rem;align-items:flex-start;margin:.2rem 0 1rem;padding:.7rem .85rem;border-radius:10px;background:#fdf3e7;border:1px solid #efd5b3;color:#6b4a1d;font-size:.85rem;line-height:1.4}
+.poc svg{flex:none;margin-top:.1rem}
+.poc strong{color:#5a3c12}
+.tag.poc-tag{background:#f6e3c6;color:#6b4a1d;margin-left:.3rem}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.fine{font-size:.82rem;color:var(--stone-500);margin-top:1.2rem}
+/* Footer */
+footer{background:var(--stone-900);color:#cfc6b8;padding:2.5rem 0 2rem;font-size:.92rem}
+.foot{display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;align-items:center}
+footer a{color:#fff}
+footer .logo{color:#fff}
+.sample-note{margin-top:1.4rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.12);font-size:.8rem;color:#a89f92}
+.foot-links{display:flex;gap:1.2rem;flex-wrap:wrap}
+
+/* ===== Land to Pad page ===== */
+.section-head{max-width:720px}
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#2a4a3b 0%,#1f4d3a 45%,#3d5a49 100%);color:#fff}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 85% 20%,rgba(176,141,87,.35),transparent 55%);pointer-events:none}
+.hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;padding:clamp(3rem,7vw,5.5rem) 0}
+.hero h1{color:#fff;font-size:clamp(2.3rem,5vw,3.7rem);letter-spacing:-.01em;margin-bottom:.15em}
+.hero .sub-title{font-family:var(--serif);font-size:clamp(1.2rem,2.2vw,1.55rem);color:#d9c39a;margin:0 0 1rem}
+.hero .eyebrow{color:#d9c39a}
+.hero p.lead{font-size:1.12rem;color:#e6ece8;max-width:32rem}
+.hero-art{margin:0;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:1.2rem}
+.hero-art img{width:100%;height:auto;display:block;border-radius:12px;aspect-ratio:4/3;object-fit:cover}
+.hero-art figcaption{font-size:.76rem;color:#cfdad3;margin-top:.55rem;line-height:1.35}
+.phase-strip{list-style:none;display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;margin:1.6rem 0 0;padding:0}
+.phase-strip li{display:flex;align-items:center;gap:.5rem}
+.phase-strip .pill{display:inline-flex;align-items:center;gap:.55rem;background:#fff;color:var(--green-dark);font-weight:600;font-size:.95rem;padding:.45rem 1rem .45rem .45rem;border-radius:999px}
+.phase-strip .pill b{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font-size:.85rem}
+.phase-strip .arrow{color:var(--accent);font-size:1.3rem;line-height:1}
+@media (max-width:520px){.phase-strip .arrow{display:none}.phase-strip .pill{font-size:.9rem}}
+.ref-tag{display:inline-block;margin-top:1.4rem;font-size:.8rem;color:#cfdad3;border:1px dashed rgba(255,255,255,.35);border-radius:999px;padding:.3rem .8rem}
+@media (max-width:860px){.hero-inner{grid-template-columns:1fr;gap:2rem}.hero-art{max-width:520px}}
+
+/* Phases */
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.phase{background:#fff;border:1px solid var(--stone-200);border-top:4px solid var(--green);border-radius:var(--radius);padding:1.6rem 1.5rem;box-shadow:var(--shadow);text-align:center}
+.num-dot{display:grid;place-items:center;width:52px;height:52px;margin:0 auto 1rem;border-radius:50%;background:var(--green);color:#fff;font-family:var(--serif);font-size:1.4rem;font-weight:600;box-shadow:0 0 0 5px var(--green-light)}
+.phase h3{margin-bottom:.4rem}
+.phase p{margin:0;color:var(--stone-700)}
+.phase .phase-of{display:block;font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.3rem}
+@media (max-width:760px){.phases{grid-template-columns:1fr}}
+
+/* Ladder */
+.ladder-wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:2rem;align-items:stretch}
+.ladder{list-style:none;margin:0;padding:0;display:grid;gap:.6rem;counter-reset:none}
+.ladder li{display:grid;grid-template-columns:64px 1fr;align-items:stretch;background:var(--green);color:#fff;border-radius:12px;overflow:hidden}
+.ladder .n{display:grid;place-items:center;font-family:var(--serif);font-size:1.35rem;color:#d9c39a;background:var(--green-dark)}
+.ladder .t{padding:.8rem 1.1rem}
+.ladder .t strong{display:block;font-size:1.02rem}
+.ladder .t span{font-size:.9rem;color:#d7e3db}
+.ladder li.final{background:#f3e7d2;color:var(--stone-900);border:2px solid var(--accent)}
+.ladder li.final .n{background:var(--accent);color:#fff}
+.ladder li.final .t span{color:var(--stone-700)}
+.ladder-note{margin:1rem 0 0;padding:.9rem 1.1rem;border-radius:12px;background:var(--green-dark);color:#fff;font-weight:600}
+.ladder-note span{color:#d9c39a}
+.side-art{margin:0;background:#fff;border:1px solid var(--stone-200);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+.side-art img{display:block;width:100%;height:100%;min-height:0;flex:1;object-fit:cover;object-position:center 70%}
+.side-art figcaption{font-size:.78rem;line-height:1.4;color:var(--stone-700);padding:.6rem .9rem;background:#fbf6ec;border-top:1px solid #eadfca}
+.side-art figcaption strong{color:var(--stone-900)}
+@media (max-width:860px){.ladder-wrap{grid-template-columns:1fr}.side-art img{aspect-ratio:4/3;height:auto}}
+
+/* Timeline */
+.timeline{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,1fr);gap:1rem;position:relative}
+.timeline::before{content:"";position:absolute;left:8%;right:8%;top:26px;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--accent),var(--green))}
+.timeline li{position:relative;text-align:center}
+.timeline .dot{position:relative;z-index:1;display:grid;place-items:center;width:56px;height:56px;margin:0 auto .9rem;border-radius:50%;font-family:var(--serif);font-size:1.3rem;font-weight:600;color:#fff;background:var(--green);border:4px solid var(--stone-100)}
+.timeline li:nth-child(odd) .dot{background:var(--accent)}
+.timeline li:last-child .dot{background:var(--green-dark);box-shadow:0 0 0 3px var(--accent)}
+.timeline strong{display:block;font-size:.98rem;line-height:1.25;margin-bottom:.2rem}
+.timeline span{display:block;font-size:.86rem;color:var(--stone-700)}
+@media (max-width:860px){
+  .timeline{grid-template-columns:1fr;gap:1.1rem;padding-left:.2rem}
+  .timeline::before{left:26px;right:auto;top:10px;bottom:10px;width:4px;height:auto;background:linear-gradient(180deg,var(--accent),var(--green))}
+  .timeline li{display:grid;grid-template-columns:56px 1fr;gap:1rem;align-items:center;text-align:left}
+  .timeline .dot{margin:0}
+}
+
+/* Costs */
+.sample-banner{display:flex;gap:.8rem;align-items:flex-start;margin:0 0 1.6rem;padding:1rem 1.2rem;border-radius:12px;background:#fdf3e7;border:1px solid #efd5b3;color:#6b4a1d;font-size:.93rem;line-height:1.5;max-width:860px}
+.sample-banner svg{flex:none;margin-top:.15rem}
+.sample-banner strong{color:#5a3c12}
+.costs{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.cost{background:#fff;border:1px solid var(--stone-200);border-radius:var(--radius);padding:1.2rem 1.25rem;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.cost h3{font-family:var(--sans);font-size:.95rem;font-weight:600;margin:0 0 .35rem;color:var(--stone-900)}
+.cost .amt{font-family:var(--serif);font-size:1.45rem;font-weight:600;color:var(--green);line-height:1.15;margin:0 0 .35rem}
+.cost p{margin:0;font-size:.86rem;color:var(--stone-700);line-height:1.45}
+.cost .kicker{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.35rem}
+.cost.total{background:var(--green);border-color:var(--green);color:#fff}
+.cost.total h3{color:#fff}
+.cost.total .amt{color:#e6cf9f;font-size:1.6rem}
+.cost.total p{color:#d7e3db}
+.cost.swing{background:#f3e7d2;border:2px solid var(--accent)}
+.cost.swing .kicker{color:#7a5a26}
+.cost.swing .amt{color:#6b4a1d}
+.cost-foot{font-size:.82rem;color:var(--stone-500);margin-top:1.2rem;max-width:860px}
+@media (max-width:960px){.costs{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.costs{grid-template-columns:1fr}}
+
+/* Utility closer */
+.closer{background:var(--green-dark);color:#fff}
+.closer h2{color:#fff}
+.closer .eyebrow{color:#d9c39a}
+.closer-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center}
+.closer ul{list-style:none;margin:1.2rem 0 1.6rem;padding:0;display:grid;gap:.9rem}
+.closer li{position:relative;padding-left:1.6rem;color:#e6ece8;font-size:1.05rem}
+.closer li::before{content:"";position:absolute;left:0;top:.5em;width:11px;height:11px;border-radius:50%;background:var(--accent)}
+.bottom-line{background:#f3e7d2;color:var(--stone-900);border-left:5px solid var(--accent);border-radius:12px;padding:1rem 1.2rem;font-size:1rem;margin:0}
+.bottom-line strong{color:var(--green-dark)}
+.utility-art{margin:0;text-align:center}
+.utility-art .ring{display:block;width:min(100%,420px);aspect-ratio:1;margin:0 auto;border-radius:22px;overflow:hidden;border:6px solid var(--accent);box-shadow:0 10px 40px rgba(0,0,0,.3)}
+.utility-art img{display:block;width:100%;height:100%;object-fit:cover}
+.utility-art .label{display:inline-block;margin-top:-1.3rem;position:relative;background:var(--accent);color:#fff;font-family:var(--serif);font-weight:600;font-size:1.1rem;padding:.4rem 1.2rem;border-radius:999px}
+.utility-art figcaption{font-size:.8rem;color:#cfdad3;margin-top:.8rem;line-height:1.4;max-width:400px;margin-inline:auto}
+@media (max-width:860px){.closer-grid{grid-template-columns:1fr;gap:2rem}.utility-art{order:-1}.utility-art .ring{width:min(100%,320px)}}
+
+/* CTA */
+.cta-band{background:#fff;border:1px solid var(--stone-200);border-radius:var(--radius);box-shadow:var(--shadow);padding:clamp(1.6rem,4vw,2.6rem);display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap}
+.cta-band h2{margin-bottom:.3rem}
+.cta-band p{margin:0;color:var(--stone-700);max-width:38rem}
+.cta-actions{display:flex;gap:.8rem;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site">
+  <nav class="container nav" aria-label="Main">
+    <a class="logo" href="index.html" aria-label="Fieldstone Residential home">
+      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="9" fill="#1f4d3a"/><path d="M8 17 17 9l9 8v9H8z" fill="none" stroke="#e7e0d6" stroke-width="2.2" stroke-linejoin="round"/><path d="M14 26v-5h6v5" fill="none" stroke="#b08d57" stroke-width="2.2"/></svg>
+      Fieldstone Residential
+    </a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu"><span></span></button>
+    <ul id="nav-links">
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="index.html#plans">Our Plans</a></li>
+      <li><a href="index.html#faq">Buyer Q&amp;A</a></li>
+      <li><a href="index.html#regions">Regions</a></li>
+      <li><a href="index.html#checklist">Checklist</a></li>
+      <li><a href="land-to-pad.html" class="active" aria-current="page">Land to Pad</a></li>
+      <li><a href="index.html#contact" class="cta">Start Your Build</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- 1. HERO -->
+<section class="hero" aria-labelledby="ltp-title">
+  <div class="container hero-inner">
+    <div>
+      <span class="eyebrow">Land to Pad · Reference guide</span>
+      <h1 id="ltp-title">Land to Pad-Ready</h1>
+      <p class="sub-title">The Development Roadmap</p>
+      <p class="lead">How raw land becomes finished lots that are ready for a builder, in three phases.</p>
+      <ol class="phase-strip" aria-label="The three phases">
+        <li><span class="pill"><b>1</b>Entitlements</span><span class="arrow" aria-hidden="true">&rarr;</span></li>
+        <li><span class="pill"><b>2</b>Engineering</span><span class="arrow" aria-hidden="true">&rarr;</span></li>
+        <li><span class="pill"><b>3</b>Site Work</span></li>
+      </ol>
+      <span class="ref-tag">Sample reference material for this demo site</span>
+    </div>
+    <figure class="hero-art">
+      <img src="assets/img/ltp-pads-aerial-800.webp" srcset="assets/img/ltp-pads-aerial-800.webp 800w, assets/img/ltp-pads-aerial.webp 1152w" sizes="(max-width:860px) 92vw, 540px" width="1152" height="864" alt="Artist's rendering of an aerial view of finished, pad-ready lots: rows of graded red-clay pads along a newly paved curving street with sidewalks, utility stubs at each lot, and pine woods and a pond beyond" fetchpriority="high">
+      <figcaption>Finished, pad-ready lots. Artist's rendering for illustration only.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 2. THREE PHASES -->
+<section id="phases" class="section" aria-labelledby="phases-title">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">The big picture</span>
+      <h2 id="phases-title">Three phases from raw land to pad-ready</h2>
+      <p>Every lot goes through the same three phases before a home can go up on it.</p>
+    </div>
+    <div class="phases">
+      <article class="phase"><div class="num-dot" aria-hidden="true">1</div><span class="phase-of">Phase 1</span><h3>Entitlements</h3><p>Get the government to say yes: zoning, site plan, public hearings.</p></article>
+      <article class="phase"><div class="num-dot" aria-hidden="true">2</div><span class="phase-of">Phase 2</span><h3>Engineering</h3><p>Civil engineers lay out grading, drainage, roads, and utility stubs.</p></article>
+      <article class="phase"><div class="num-dot" aria-hidden="true">3</div><span class="phase-of">Phase 3</span><h3>Site Work</h3><p>Clear, grade, install utilities and roads, and build the pads.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- 3. SIX STEPS LADDER -->
+<section id="steps" class="section alt" aria-labelledby="steps-title">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Step by step</span>
+      <h2 id="steps-title">Six steps from raw land to pad-ready</h2>
+      <p>Read top to bottom: from buying the land to handing a finished lot to a builder.</p>
+    </div>
+    <div class="ladder-wrap">
+      <div>
+        <ol class="ladder">
+          <li><span class="n" aria-hidden="true">01</span><div class="t"><strong>Acquire and diligence</strong><span>Buy the land; check title, survey, environmental, and the numbers</span></div></li>
+          <li><span class="n" aria-hidden="true">02</span><div class="t"><strong>Entitlements</strong><span>Zoning, site plan, public hearings</span></div></li>
+          <li><span class="n" aria-hidden="true">03</span><div class="t"><strong>Design</strong><span>Grading, drainage, roads, utility stubs</span></div></li>
+          <li><span class="n" aria-hidden="true">04</span><div class="t"><strong>Permits</strong><span>Formal sign-off to start moving dirt</span></div></li>
+          <li><span class="n" aria-hidden="true">05</span><div class="t"><strong>Horizontal construction</strong><span>Clear, grade, utilities, roads, pads</span></div></li>
+          <li class="final"><span class="n" aria-hidden="true">06</span><div class="t"><strong>Pad-ready</strong><span>Finished dirt, utilities stubbed to each lot, ready for a vertical builder</span></div></li>
+        </ol>
+        <p class="ladder-note">Each step unlocks the next. <span>Skip one and the whole schedule slips.</span></p>
+      </div>
+      <figure class="side-art">
+        <img src="assets/img/ltp-site-work-600.webp" srcset="assets/img/ltp-site-work-600.webp 600w, assets/img/ltp-site-work.webp 864w" sizes="(max-width:860px) 92vw, 400px" width="864" height="1152" alt="Artist's rendering of horizontal construction: a yellow bulldozer leveling a single staked, red-clay building pad beside a new curb and street, with pine trees behind" loading="lazy" decoding="async">
+        <figcaption><strong>Step 05, horizontal construction.</strong> Artist's rendering for illustration only.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 4. TIMELINE -->
+<section id="timeline" class="section" aria-labelledby="timeline-title">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">At a glance</span>
+      <h2 id="timeline-title">Six steps, in order</h2>
+    </div>
+    <ol class="timeline">
+      <li><span class="dot" aria-hidden="true">1</span><div><strong>Acquire &amp; diligence</strong><span>Buy and check the land</span></div></li>
+      <li><span class="dot" aria-hidden="true">2</span><div><strong>Entitlements</strong><span>Government says yes</span></div></li>
+      <li><span class="dot" aria-hidden="true">3</span><div><strong>Design</strong><span>Grading, drainage, roads</span></div></li>
+      <li><span class="dot" aria-hidden="true">4</span><div><strong>Permits</strong><span>Sign-off to move dirt</span></div></li>
+      <li><span class="dot" aria-hidden="true">5</span><div><strong>Horizontal construction</strong><span>Clear, grade, build</span></div></li>
+      <li><span class="dot" aria-hidden="true">6</span><div><strong>Pad-ready</strong><span>Ready for a builder</span></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 5. COSTS -->
+<section id="costs" class="section alt" aria-labelledby="costs-title">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Sample figures</span>
+      <h2 id="costs-title">What it costs: single lot, Georgia</h2>
+      <p>2026 estimates. Development costs only; excludes the land purchase price.</p>
+    </div>
+    <div class="sample-banner" role="note">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9a6a24" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16.5v.5"/></svg>
+      <span><strong>Sample figures for this demo.</strong> These ranges were provided for this sample site and are shown for illustration only. They cover development (horizontal) costs only and exclude the land purchase price. They are not a quote or an offer; real costs vary by site, county, and market, so get local bids before you budget.</span>
+    </div>
+    <div class="costs">
+      <article class="cost total"><h3>Total horizontal development</h3><p class="amt">$25,000–$50,000</p><p>per lot</p></article>
+      <article class="cost"><h3>Clearing</h3><p class="amt">$1,500–$4,500</p><p>per acre</p></article>
+      <article class="cost"><h3>Grading &amp; pad prep</h3><p class="amt">$2,000–$10,000</p><p>Slope and clay drive it</p></article>
+      <article class="cost swing"><span class="kicker">Biggest swing factor</span><h3>Utilities</h3><p class="amt">$9,000–$34,000</p><p>Water, sewer, electric, gas. Rural well/septic can shift this.</p></article>
+      <article class="cost"><h3>Septic</h3><p class="amt">$4,000–$7,000</p><p>standard; $15,000–$25,000 engineered</p></article>
+      <article class="cost"><h3>Permits &amp; fees</h3><p class="amt">$750–$2,750+</p><p>Gwinnett $750 (under 5 acres); Fulton $2,500 base; Forsyth $250/lot grading plan; plus $80/acre state stormwater fee</p></article>
+      <article class="cost"><h3>Impact fees</h3><p class="amt">$1,000–$12,000</p><p>In fast-growth areas</p></article>
+      <article class="cost"><h3>Soft costs</h3><p class="amt">15–25% on top</p><p>Engineering, surveying, environmental</p></article>
+    </div>
+    <p class="cost-foot">*Sample figures only. Ranges are 2026 estimates for a single lot in Georgia, development costs only, excluding land purchase. Shown for demonstration on a fictional builder's sample site.</p>
+  </div>
+</section>
+
+<!-- 6. UTILITY PROXIMITY -->
+<section id="utilities" class="section closer" aria-labelledby="util-title">
+  <div class="container closer-grid">
+    <div>
+      <span class="eyebrow">Before you buy</span>
+      <h2 id="util-title">The one variable that moves everything</h2>
+      <ul>
+        <li>A lot with mains at the street is a completely different budget than one needing a 300-foot extension.</li>
+        <li>North Georgia granite can add $5,000–$20,000+ in blasting if you hit rock.</li>
+      </ul>
+      <p class="bottom-line"><strong>Bottom line:</strong> Budget $25K–$50K per lot for horizontal work in Georgia, and verify utility distance and soil/rock conditions before you buy.</p>
+    </div>
+    <figure class="utility-art">
+      <span class="ring"><img src="assets/img/ltp-utility-640.webp" srcset="assets/img/ltp-utility-640.webp 640w, assets/img/ltp-utility.webp 1024w" sizes="(max-width:860px) 320px, 400px" width="1024" height="1024" alt="Artist's rendering from above comparing two lots: one pad sits right at the street where blue water and green sewer lines run, while a second pad far back in the field needs a long dashed line of utility extension to reach them" loading="lazy" decoding="async"></span>
+      <span class="label">Utility proximity</span>
+      <figcaption>Mains at the street versus a long extension across the field. Artist's rendering for illustration only.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 7. CTA -->
+<section class="section" aria-labelledby="cta-title">
+  <div class="container">
+    <div class="cta-band">
+      <div>
+        <span class="eyebrow">Next step</span>
+        <h2 id="cta-title">Have land, or looking for some?</h2>
+        <p>Tell us about your lot or the area you're considering, and we'll help you think through site work before you commit.</p>
+      </div>
+      <div class="cta-actions">
+        <a class="btn" href="index.html#contact">Start Your Build</a>
+        <a class="btn outline" href="index.html#checklist">Buyer Checklist</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="foot">
+      <a class="logo" href="index.html">
+        <svg width="30" height="30" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="9" fill="#1f4d3a"/><path d="M8 17 17 9l9 8v9H8z" fill="none" stroke="#e7e0d6" stroke-width="2.2" stroke-linejoin="round"/><path d="M14 26v-5h6v5" fill="none" stroke="#b08d57" stroke-width="2.2"/></svg>
+        Fieldstone Residential
+      </a>
+      <div class="foot-links"><a href="index.html#plans">Plans</a><a href="index.html#regions">Regions</a><a href="index.html#faq">Q&amp;A</a><a href="land-to-pad.html" aria-current="page">Land to Pad</a><a href="index.html#contact">Contact</a></div>
+    </div>
+    <p class="sample-note">© <span id="year"></span> Fieldstone Residential. This is a sample demonstration site for a fictional builder. The Land to Pad roadmap is general reference material, cost ranges are sample figures provided for this demo (development costs only, excluding land), and renderings are artistic.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  document.getElementById("year").textContent = new Date().getFullYear();
+  var menuBtn = document.querySelector(".menu-btn"), navList = document.getElementById("nav-links");
+  function closeNav(){ navList.classList.remove("open"); menuBtn.setAttribute("aria-expanded","false"); menuBtn.setAttribute("aria-label","Open menu"); }
+  menuBtn.addEventListener("click", function(){
+    var open = menuBtn.getAttribute("aria-expanded") === "true";
+    menuBtn.setAttribute("aria-expanded", String(!open));
+    menuBtn.setAttribute("aria-label", open ? "Open menu" : "Close menu");
+    navList.classList.toggle("open", !open);
+  });
+  navList.addEventListener("click", function(e){ if (e.target.closest("a")) closeNav(); });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape" && navList.classList.contains("open")) { closeNav(); menuBtn.focus(); } });
+})();
+</script>
+</body>
+</html>
